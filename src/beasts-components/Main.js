@@ -1,13 +1,13 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
-import data from '../assests/data.json';
+
 
 class Main extends React.Component{
   render(){
     return(
 
       <main>
-        {data.map(beast =>
+        {this.props.hornData.map(beast =>
             
           <HornedBeast
             title = {beast.title}
@@ -15,8 +15,12 @@ class Main extends React.Component{
             description ={beast.description}
             keyword = {beast.keyword}
             horns = {beast.horns}
+            hornFunction = {this.props.hornedBeastsFav}
+            favBeast = {this.props.favBeast}
+            
           />
         )}
+        {/* {console.log('from main',this.props)} */}
 
       </main>
 
