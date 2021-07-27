@@ -2,10 +2,7 @@ import React from 'react';
 import Header from './beasts-components/Header';
 import Footer from './beasts-components/Footer';
 import Main from './beasts-components/Main';
-// import SelectedBeasts from './beasts-components/SelectedBeasts';
-import './App.css';
 import data from './assests/data.json';
-
 class App extends React.Component{
 
   constructor(props){
@@ -24,7 +21,7 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        {/* {console.log('state',this.state.favoriteBeast)} */}
+        {console.log('state',this.state.favoriteBeast)}
 
         <Header />
         <Main 
