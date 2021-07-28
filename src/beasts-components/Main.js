@@ -17,6 +17,8 @@ class Main extends React.Component{
             horns = {beast.horns}
             hornFunction = {this.props.hornedBeastsFav}
             favBeast = {this.props.favBeast}
+            updatingShow = {this.props.updatingShow}
+            dataModeling = {this.props.dataModeling}
             
           />
         )}
@@ -26,6 +28,5 @@ class Main extends React.Component{
 
     );
   }
-
 }
 export default Main;
