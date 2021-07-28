@@ -12,6 +12,18 @@ class HornedBeast extends React.Component {
       numberOfFavorites: 0
     };
   }
+
+  viewBeast = () =>{
+    this.props.updatingShow();
+    this.props.dataModeling(
+      this.props.title,
+      this.props.image_url,
+      this.props.description,
+      this.props.horn,
+      this.props.keyword,
+      this.state.numberOfFavorites
+    );
+  }
   favBeast = () => {
     this.setState({
       numberOfFavorites: this.state.numberOfFavorites + 1
@@ -21,12 +33,11 @@ class HornedBeast extends React.Component {
     return (
       <div>
         <Card style={{ width: '18rem' , marginLeft: '490px', marginButtom: '20px'}}>
-          <Card.Img variant="top" src={this.props.image_url} />
+          <Card.Img variant="top" onClick={() =>{this.viewBeast();}} src={this.props.image_url}  alt = {this.props.keyword}/>
           <Card.Body>
             <Card.Title> Title: {this.props.title}</Card.Title>
             <Card.Text>
             Description: {this.props.description}
-            keyword: {this.props.keyword}
             Horns: {this.props.horns}
             </Card.Text>
             <Button variant="primary" onClick={this.favBeast}> Like a Beast:</Button>
