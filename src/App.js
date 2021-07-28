@@ -4,10 +4,9 @@ import Footer from './beasts-components/Footer';
 import Main from './beasts-components/Main';
 import SelectedBeasts from './beasts-components/SelectedBeasts';
 import data from './assests/data.json';
-import BeastForm from './beasts-components/BeastForm';
-class App extends React.Component{
-
-  constructor(props){
+// import BeastForm from './beasts-components/BeastForm';
+class App extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       title: '',
@@ -15,29 +14,41 @@ class App extends React.Component{
       description: '',
       horn: '',
       keyword: '',
-      favoriteBeast:0, 
-      shown: false
+      favoriteBeast: 0,
+      shown: false,
+      // hornInput:''
     };
   }
 
-  dataModeling = (title, image_url, description, horn, keyword, favoriteBeast)=>{
+  dataModeling = (
+    title,
+    image_url,
+    description,
+    horn,
+    keyword,
+    favoriteBeast
+  ) => {
     this.setState({
-      title : title,
-      image_url : image_url,
+      title: title,
+      image_url: image_url,
       description: description,
       horn: horn,
       keyword: keyword,
       favoriteBeast: favoriteBeast,
     });
-  }
+  };
 
-  updatingShow = () =>{
+  updatingShow = () => {
     this.setState({
-      shown: !this.state.shown
-
+      shown: !this.state.shown,
     });
-  }
+  };
 
+  // handleUserInput = (event)=>{
+  //   console.log(event.target.value);
+  //   this.setState({hornInput : event.target.value});
+
+  // }
 
   // hornedBeastsFav = () =>{
   //   this.setState({
@@ -45,8 +56,9 @@ class App extends React.Component{
   //   });
 
   // }
-  render(){
-    return(
+
+  render() {
+    return (
       <div>
         {/* {console.log('state',this.state.favoriteBeast)} */}
 
@@ -59,23 +71,17 @@ class App extends React.Component{
           favoriteBeast={this.state.favoriteBeast}
           updatingShow={this.updatingShow}
           // dataModeling={this.dataModeling}
-
-          
         />
-        <BeastForm 
-        // Pass data.js 
-        />
-        <Main 
-          hornData = {data}
+        <Main
+          hornData={data}
           // hornedBeastsFav = {this.hornedBeastsFav}
-          favBeast = {this.state.favoriteBeast}
+          favBeast={this.state.favoriteBeast}
           updatingShow={this.updatingShow}
-          dataModeling={this.dataModeling}/>
+          dataModeling={this.dataModeling}
+        />
         <Footer />
       </div>
     );
-
   }
-
 }
 export default App;

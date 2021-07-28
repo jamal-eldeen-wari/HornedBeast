@@ -33,7 +33,7 @@ class HornedBeast extends React.Component {
     return (
       <div>
         <Card style={{ width: '18rem' , marginLeft: '490px', marginButtom: '20px'}}>
-          <Card.Img variant="top" onClick={() =>{this.viewBeast();}} src={this.props.image_url}  alt = {this.props.keyword}/>
+          <Card.Img variant="top" onClick={() =>{this.viewBeast();}} src={this.props.image_url} alt = {this.props.keyword}/>
           <Card.Body>
             <Card.Title> Title: {this.props.title}</Card.Title>
             <Card.Text>
