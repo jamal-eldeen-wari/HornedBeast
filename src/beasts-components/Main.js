@@ -6,28 +6,34 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //Default value
+      changeFilter: 0,
+      //Default value of the filter
       hornFilter: -1,
     };
   }
   // this function is responsible for changing the filter based on user input.
   changeFilter = (changeFilter) => {
+    console.log('coming from main');
     this.setState({
       changeFilter: changeFilter,
     });
   };
   render() {
+    console.log(this.state.changeFilter);
     return (
       <main>
         <BeastForm changeFilter={this.changeFilter} />
 
         {this.props.hornData
-          .filter((element) =>
-            this.state.changeFilter === -1
-              ? true
-              : element.horn === this.state.hornFilter
-          )
+          .filter((element) => {
+            if (this.state.changeFilter === element.horns) {
+              return element;
+            } else if (this.state.changeFilter === 0) {
+              return element;
+            }
+          })
           .map((beast) => {
+            // console.log('inside map');
             return (
               <HornedBeast
                 title={beast.title}
